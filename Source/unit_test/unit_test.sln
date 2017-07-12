@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unit_test", "unit_test.vcxproj", "{9E0C94AC-612D-42AE-B7FA-2B07EB9D1087}"
+	ProjectSection(ProjectDependencies) = postProject
+		{88757938-0CDE-4D8D-AC26-2CCA5BB960BF} = {88757938-0CDE-4D8D-AC26-2CCA5BB960BF}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib_dee", "..\lib_dee\lib_dee.vcxproj", "{88757938-0CDE-4D8D-AC26-2CCA5BB960BF}"
 EndProject
