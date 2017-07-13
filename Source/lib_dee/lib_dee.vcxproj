@@ -22,7 +22,9 @@
     <ClInclude Include="Container\linked_list.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Container\linked_list.cpp" />
+    <ClInclude Include="Container\linked_list.inl">
+      <FileType>CppCode</FileType>
+    </ClInclude>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{88757938-0CDE-4D8D-AC26-2CCA5BB960BF}</ProjectGuid>

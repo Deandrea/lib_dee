@@ -1,29 +1,32 @@
 #ifndef LIST_H
 #define LIST_H
-
-struct node
+template <typename T>
+class node
 {
-	int data;
+public:
+
+	T data;
 	node *next;
 
 };
 
+template <typename T>
 class list
 {
 public:
 
 	list();
 	~list();
-	int &get(int index);
+	T &get(int index);
 	bool empty();
 	int size();
 	void popBack();
 	void popFront();
-	void pushBack(int value);
-	void pushFront(int value);
+	void pushBack(T value);
+	void pushFront(T value);
 
 private:
-	node *root;
+	node<T> *root;
 };
-
+#include "linked_list.inl"
 #endif

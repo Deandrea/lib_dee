@@ -21,10 +21,8 @@
     <ClInclude Include="Container\linked_list.h">
       <Filter>Source Files\container</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Container\linked_list.cpp">
+    <ClInclude Include="Container\linked_list.inl">
       <Filter>Source Files\container</Filter>
-    </ClCompile>
+    </ClInclude>
   </ItemGroup>
 </Project>

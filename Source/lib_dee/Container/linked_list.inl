@@ -1,25 +1,27 @@
-#include "linked_list.h"
 #include <cstddef>
 #include <assert.h>
 
-list::list()
+template <typename T>
+list<T>::list()
 	:root(NULL)
 {
 
 }
-list::~list()
+template <typename T>
+list<T>::~list()
 {
 	while (!empty())
 	{
 		popFront();
 	}
 }
-int &list::get(int index)
+template <typename T>
+T &list<T>::get(int index)
 {
 	assert(!empty() && "Dont call get for empty list!!!!!");
 	assert(index < size() && index >= 0 && "Invalid index, omg");
 
-	node *current = this->root;
+	node<T> *current = this->root;
 
 	while (index > 0)
 	{
@@ -30,22 +32,22 @@ int &list::get(int index)
 	return current->data;
 
 }
-
-bool list::empty()
+template <typename T>
+bool list<T>::empty()
 {
 	if (this->root == NULL)
 		return true;
 
 	return false;
 }
-
-int list::size()
+template <typename T>
+int list<T>::size()
 {
 	if (empty())
 		return 0;
 
 	int size = 1;
-	node *current = this->root->next;
+	node<T>*current = this->root->next;
 
 	while (current)
 	{
@@ -55,8 +57,8 @@ int list::size()
 
 	return size;
 }
-
-void list::popBack()
+template <typename T>
+void list<T>::popBack()
 {
 	assert(!empty() && "Cannot pop, did stop");
 	int s = size();
@@ -64,7 +66,7 @@ void list::popBack()
 	if (s > 1)
 	{
 		int index = s - 2;
-		node *current = this->root;
+		node<T> *current = this->root;
 
 		while (index > 0)
 		{
@@ -85,41 +87,41 @@ void list::popBack()
 		this->root = NULL;
 	}
 }
-
-void list::popFront()
+template <typename T>
+void list<T>::popFront()
 {
 	assert(!empty());
-	node *next = this->root->next;
+	node<T> *next = this->root->next;
 	delete this->root;
 	this->root = next;
 }
-
-void list::pushBack(int value)
+template <typename T>
+void list<T>::pushBack(T value)
 {
 	if (this->root != NULL)
 	{
-		node *current = this->root;
+		node<T> *current = this->root;
 		while (current->next != NULL)
 		{
 			current = current->next;
 		}
-		current->next = new node;
+		current->next = new node<T>;
 		current->next->data = value;
 		current->next->next = NULL;
 
 	}
 	else
 	{
-		this->root = new node;
+		this->root = new node<T>;
 		this->root->data = value;
 		this->root->next = NULL;
 	}
 }
-
-void list::pushFront(int value)
+template <typename T>
+void list<T>::pushFront(T value)
 {
-	node *temp = this->root;
-	this->root = new node;
+	node<T> *temp = this->root;
+	this->root = new node<T>;
 	this->root->data = value;
 	this->root->next = temp;
 

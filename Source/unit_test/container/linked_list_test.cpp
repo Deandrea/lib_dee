@@ -3,7 +3,7 @@
 #include <iostream>
 bool list_test() 
 {
-	list test;
+	list<int> test;
 
 	if (test.empty())
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
@@ -49,17 +49,17 @@ bool list_test()
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	list test2;
+	list<float> test2;
 
-	test2.pushBack(8);
-	test2.pushBack(234);
+	test2.pushBack(8.0f);
+	test2.pushBack(234.0f);
 
 	if (test2.size() == 2)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	if (test2.get(1) == 234)
+	if (test2.get(1) == 234.0f)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
@@ -70,7 +70,7 @@ bool list_test()
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	if (test2.get(0) == 8)
+	if (test2.get(0) == 8.0f)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
