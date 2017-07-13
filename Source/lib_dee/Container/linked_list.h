@@ -8,18 +8,22 @@ struct node
 
 };
 
-struct list
+class list
 {
+public:
+
+	list();
+	~list();
+	int &get(int index);
+	bool empty();
+	int size();
+	void popBack();
+	void popFront();
+	void pushBack(int value);
+	void pushFront(int value);
+
+private:
 	node *root;
 };
-
-void init(list &list);
-int &get(list &list, int index);
-bool empty(list &list);
-int size(list &list);
-void popBack(list &list);
-void popFront(list &list);
-void pushBack(list &list, int value);
-void pushFront(list &list, int value);
 
 #endif

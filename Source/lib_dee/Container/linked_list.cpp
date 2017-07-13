@@ -1,16 +1,25 @@
 #include "linked_list.h"
 #include <cstddef>
 #include <assert.h>
-void init(list &list)
-{
-	list.root = NULL;
-}
-int &get(list &list, int index)
-{
-	assert(!empty(list) && "Dont call get for empty list!!!!!");
-	assert(index < size(list) && index >= 0 && "Invalid index, omg");
 
-	node *current = list.root;
+list::list()
+	:root(NULL)
+{
+
+}
+list::~list()
+{
+	while (!empty())
+	{
+		popFront();
+	}
+}
+int &list::get(int index)
+{
+	assert(!empty() && "Dont call get for empty list!!!!!");
+	assert(index < size() && index >= 0 && "Invalid index, omg");
+
+	node *current = this->root;
 
 	while (index > 0)
 	{
@@ -22,21 +31,21 @@ int &get(list &list, int index)
 
 }
 
-bool empty(list &list)
+bool list::empty()
 {
-	if (list.root == NULL)
+	if (this->root == NULL)
 		return true;
 
 	return false;
 }
 
-int size(list &list)
+int list::size()
 {
-	if (empty(list))
+	if (empty())
 		return 0;
 
 	int size = 1;
-	node *current = list.root->next;
+	node *current = this->root->next;
 
 	while (current)
 	{
@@ -47,15 +56,15 @@ int size(list &list)
 	return size;
 }
 
-void popBack(list &list)
+void list::popBack()
 {
-	assert(!empty(list) && "Cannot pop, did stop");
-	int s = size(list);
+	assert(!empty() && "Cannot pop, did stop");
+	int s = size();
 
 	if (s > 1)
 	{
 		int index = s - 2;
-		node *current = list.root;
+		node *current = this->root;
 
 		while (index > 0)
 		{
@@ -71,25 +80,25 @@ void popBack(list &list)
 	}
 	else
 	{
-		assert(list.root->next == NULL);
-		delete list.root;
-		list.root = NULL;
+		assert(this->root->next == NULL);
+		delete this->root;
+		this->root = NULL;
 	}
 }
 
-void popFront(list &list)
+void list::popFront()
 {
-	assert(!empty(list));
-	node *next = list.root->next;
-	delete list.root;
-	list.root = next;
+	assert(!empty());
+	node *next = this->root->next;
+	delete this->root;
+	this->root = next;
 }
 
-void pushBack(list &list, int value)
+void list::pushBack(int value)
 {
-	if (list.root != NULL)
+	if (this->root != NULL)
 	{
-		node *current = list.root;
+		node *current = this->root;
 		while (current->next != NULL)
 		{
 			current = current->next;
@@ -101,17 +110,17 @@ void pushBack(list &list, int value)
 	}
 	else
 	{
-		list.root = new node;
-		list.root->data = value;
-		list.root->next = NULL;
+		this->root = new node;
+		this->root->data = value;
+		this->root->next = NULL;
 	}
 }
 
-void pushFront(list &list, int value)
+void list::pushFront(int value)
 {
-	node *temp = list.root;
-	list.root = new node;
-	list.root->data = value;
-	list.root->next = temp;
+	node *temp = this->root;
+	this->root = new node;
+	this->root->data = value;
+	this->root->next = temp;
 
 }

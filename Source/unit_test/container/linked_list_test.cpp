@@ -4,86 +4,84 @@
 bool list_test() 
 {
 	list test;
-	init(test);
 
-	if (empty(test))
+	if (test.empty())
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	if (size(test) == 0)
+	if (test.size() == 0)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	pushFront(test, 9);
-	pushFront(test, 23);
-	if (size(test) == 2)
+	test.pushFront(9);
+	test.pushFront(23);
+	if (test.size() == 2)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	if (get(test, 1) == 9)
+	if (test.get(1) == 9)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	popFront(test);
-	if (size(test) == 1)
+	test.popFront();
+	if (test.size() == 1)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	if (get(test, 0) == 9)
+	if (test.get(0) == 9)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	popFront(test);
-	if (size(test) == 0)
+	test.popFront();
+	if (test.size() == 0)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	if (empty(test))
+	if (test.empty())
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
 	list test2;
-	init(test2);
 
-	pushBack(test2, 8);
-	pushBack(test2, 234);
+	test2.pushBack(8);
+	test2.pushBack(234);
 
-	if (size(test2) == 2)
+	if (test2.size() == 2)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	if (get(test2, 1) == 234)
+	if (test2.get(1) == 234)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	popBack(test2);
-	if (size(test2) == 1)
+	test2.popBack();
+	if (test2.size() == 1)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	if (get(test2, 0) == 8)
+	if (test2.get(0) == 8)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	popBack(test2);
-	if (size(test2) == 0)
+	test2.popBack();
+	if (test2.size() == 0)
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
 
-	if (empty(test2))
+	if (test2.empty())
 		printf("PASS: %s %li \n", __FILE__, __LINE__);
 	else
 		printf("FAIL: %s %li \n", __FILE__, __LINE__);
